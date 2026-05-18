@@ -264,7 +264,7 @@ class TelaCompra extends StatelessWidget {
                     ],
                    ),
                    Row(
-                    
+                    //fazer produtos
                    )
                   ],
                 ),
