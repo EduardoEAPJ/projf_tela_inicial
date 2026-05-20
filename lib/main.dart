@@ -264,7 +264,13 @@ class TelaCompra extends StatelessWidget {
                     ],
                    ),
                    Row(
-                    //fazer produtos
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    spacing: 12,
+                    children: [
+                      produtos("camisa hollow knight","R\$ 89,90","asset/image/camisa.png"),
+                      produtos("Caneca gamer Link(zelda)","R\$ 59,90","asset/image/caneca.png"),
+                      produtos("Ecobag Harry Potter Sonserina","R\$ 49,90","asset/image/ecobag.png")
+                    ],
                    )
                   ],
                 ),
@@ -335,33 +341,68 @@ Widget categorias(IconData icon, String texto) {
     ],
   );
 }
-Widget produtos(Image assetImage, String texto,) {
-  return Column(
-    children: [
-      InkWell(
-        borderRadius: BorderRadius.circular(22),
+Widget produtos(
+    String nome,
+    String preco,
+    String imagem,
+  ) {
 
-        onTap: () {},
+    return Container(
+      width: 100,
+      padding: EdgeInsets.all(15),
 
-        child: Container(
-        
-          width: 50,
-          height: 55,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(25),
 
-          decoration: BoxDecoration(
-            color: Colors.grey.shade100,
-            borderRadius: BorderRadius.circular(22),
-
-            boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 5)],
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 10,
           ),
-
-          child://imagem
-        ),
+        ],
       ),
 
-      SizedBox(height: 2),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
 
-      Text(texto, style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 120, 9, 154))),
-    ],
-  );
+        children: [
+
+          Container(
+            height: 80,
+
+            decoration: BoxDecoration(
+              color: Colors.grey.shade100,
+              borderRadius: BorderRadius.circular(20),
+
+              image: DecorationImage(
+                image: AssetImage(imagem),
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+
+          SizedBox(height: 3),
+
+          Text(
+            nome,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 10,
+            ),
+          ),
+
+          SizedBox(height: 3),
+
+          Text(
+            preco,
+            style: TextStyle(
+              color: Colors.deepPurple,
+              fontWeight: FontWeight.bold,
+              fontSize: 13,
+            ),
+          ),
+        ],
+      ),
+    );
 }
