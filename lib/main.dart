@@ -1,11 +1,11 @@
 import "package:flutter/material.dart";
 
 void main() {
-  runApp(TelaCompra());
+  runApp(TelaHome());
 }
 
-class TelaCompra extends StatelessWidget {
-  const TelaCompra({super.key});
+class TelaHome extends StatelessWidget {
+  const TelaHome({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -243,6 +243,7 @@ class TelaCompra extends StatelessWidget {
                         categorias(Icons.draw, "Personalizados"),
                       ],
                     ),
+                    SizedBox(height: 20),
               
                    Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
