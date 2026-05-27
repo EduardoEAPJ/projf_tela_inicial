@@ -1,4 +1,5 @@
 import "package:flutter/material.dart";
+import 'camisas_page.dart';
 
 void main() {
   runApp(TelaHome());
@@ -32,7 +33,9 @@ class TelaHome extends StatelessWidget {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 image: DecorationImage(
-                                  image: AssetImage("asset/image/bruxo_logo.png"),
+                                  image: AssetImage(
+                                    "asset/image/bruxo_logo.png",
+                                  ),
                                   fit: BoxFit.contain,
                                 ),
                               ),
@@ -55,7 +58,12 @@ class TelaHome extends StatelessWidget {
                                       "Sua loja geek personalizada",
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Color.fromARGB(255, 31, 135, 253),
+                                        color: Color.fromARGB(
+                                          255,
+                                          31,
+                                          135,
+                                          253,
+                                        ),
                                       ),
                                     ),
                                     SizedBox(width: 4),
@@ -70,7 +78,7 @@ class TelaHome extends StatelessWidget {
                             ),
                           ],
                         ),
-              
+
                         Container(
                           width: 40,
                           height: 40,
@@ -92,7 +100,7 @@ class TelaHome extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 25),
-              
+
                     Row(
                       children: [
                         Expanded(
@@ -106,7 +114,9 @@ class TelaHome extends StatelessWidget {
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
-                                borderSide: BorderSide(color: Colors.transparent),
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                ),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(20),
@@ -125,7 +135,7 @@ class TelaHome extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 15),
-              
+
                         Container(
                           width: 50,
                           height: 50,
@@ -147,7 +157,7 @@ class TelaHome extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 30),
-              
+
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(
@@ -190,9 +200,9 @@ class TelaHome extends StatelessWidget {
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-              
+
                               SizedBox(height: 6),
-              
+
                               Text(
                                 "Personalize camisetas,\ncanecas e muito mais.",
                                 style: TextStyle(
@@ -200,27 +210,26 @@ class TelaHome extends StatelessWidget {
                                   fontSize: 14,
                                 ),
                               ),
-              
+
                               SizedBox(height: 15),
-              
+
                               ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   foregroundColor: Colors.deepPurple,
-              
+
                                   elevation: 4,
-              
+
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-              
+
                                 onPressed: () {},
-              
-                                child: Text("Explorar agora ->",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold
-                                  ),
+
+                                child: Text(
+                                  "Explorar agora ->",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ],
@@ -228,51 +237,67 @@ class TelaHome extends StatelessWidget {
                         ),
                       ),
                     ),
-              
+
                     SizedBox(height: 35),
-              
+
                     Row(
                       spacing: 5,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              
+
                       children: [
-                        categorias(Icons.checkroom, "Camisas"),
-                        categorias(Icons.coffee, "Canecas"),
-                        categorias(Icons.shopping_bag, "Ecobags"),
-                        categorias(Icons.mouse, "Mouses"),
-                        categorias(Icons.draw, "Personalizados"),
+                        categorias(context, Icons.checkroom, "Camisas"),
+                        categorias(context, Icons.coffee, "Canecas"),
+                        categorias(context, Icons.shopping_bag, "Ecobags"),
+                        categorias(context, Icons.mouse, "Mouses"),
+                        categorias(context, Icons.draw, "Personalizados"),
                       ],
                     ),
                     SizedBox(height: 20),
-              
-                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text("destaques",
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 40, 0, 90),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16
-                      ),),
-                      TextButton(
-                        onPressed: (){}, 
-                        child: Text("Ver todos >",
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "destaques",
                           style: TextStyle(
+                            color: Color.fromARGB(255, 40, 0, 90),
                             fontWeight: FontWeight.bold,
-                            color: Color.fromARGB(255, 31, 135, 253),
-                          ),)
-                      ),
-                    ],
-                   ),
-                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    spacing: 12,
-                    children: [
-                      produtos("camisa hollow knight","R\$ 89,90","asset/image/camisa.png"),
-                      produtos("Caneca gamer Link(zelda)","R\$ 59,90","asset/image/caneca.png"),
-                      produtos("Ecobag Harry Potter Sonserina","R\$ 49,90","asset/image/ecobag.png")
-                    ],
-                   )
+                            fontSize: 16,
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "Ver todos >",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 31, 135, 253),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      spacing: 12,
+                      children: [
+                        produtos(
+                          "camisa hollow knight",
+                          "R\$ 89,90",
+                          "asset/image/camisa.png",
+                        ),
+                        produtos(
+                          "Caneca gamer Link(zelda)",
+                          "R\$ 59,90",
+                          "asset/image/caneca.png",
+                        ),
+                        produtos(
+                          "Ecobag Harry Potter Sonserina",
+                          "R\$ 49,90",
+                          "asset/image/ecobag.png",
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -312,16 +337,22 @@ class TelaHome extends StatelessWidget {
   }
 }
 
-Widget categorias(IconData icon, String texto) {
+Widget categorias(BuildContext context, IconData icon, String texto) {
   return Column(
     children: [
       InkWell(
         borderRadius: BorderRadius.circular(22),
 
-        onTap: () {},
+        onTap: () {
+          if (texto == "Camisas") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => CamisasPage()),
+            );
+          }
+        },
 
         child: Container(
-        
           width: 50,
           height: 55,
 
@@ -338,72 +369,63 @@ Widget categorias(IconData icon, String texto) {
 
       SizedBox(height: 2),
 
-      Text(texto, style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold,color: Color.fromARGB(255, 120, 9, 154))),
+      Text(
+        texto,
+        style: TextStyle(
+          fontSize: 10,
+          fontWeight: FontWeight.bold,
+          color: Color.fromARGB(255, 120, 9, 154),
+        ),
+      ),
     ],
   );
 }
-Widget produtos(
-    String nome,
-    String preco,
-    String imagem,
-  ) {
 
-    return Container(
-      width: 100,
-      padding: EdgeInsets.all(15),
+Widget produtos(String nome, String preco, String imagem) {
+  return Container(
+    width: 100,
+    padding: EdgeInsets.all(15),
 
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(25),
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(25),
 
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 10,
-          ),
-        ],
-      ),
+      boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 10)],
+    ),
 
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
 
-        children: [
+      children: [
+        Container(
+          height: 80,
 
-          Container(
-            height: 80,
+          decoration: BoxDecoration(
+            color: Colors.grey.shade100,
+            borderRadius: BorderRadius.circular(20),
 
-            decoration: BoxDecoration(
-              color: Colors.grey.shade100,
-              borderRadius: BorderRadius.circular(20),
-
-              image: DecorationImage(
-                image: AssetImage(imagem),
-                fit: BoxFit.contain,
-              ),
+            image: DecorationImage(
+              image: AssetImage(imagem),
+              fit: BoxFit.contain,
             ),
           ),
+        ),
 
-          SizedBox(height: 3),
+        SizedBox(height: 3),
 
-          Text(
-            nome,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 10,
-            ),
+        Text(nome, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10)),
+
+        SizedBox(height: 3),
+
+        Text(
+          preco,
+          style: TextStyle(
+            color: Colors.deepPurple,
+            fontWeight: FontWeight.bold,
+            fontSize: 13,
           ),
-
-          SizedBox(height: 3),
-
-          Text(
-            preco,
-            style: TextStyle(
-              color: Colors.deepPurple,
-              fontWeight: FontWeight.bold,
-              fontSize: 13,
-            ),
-          ),
-        ],
-      ),
-    );
+        ),
+      ],
+    ),
+  );
 }
